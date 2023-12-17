@@ -606,7 +606,11 @@ body.nav-active { overflow: hidden; }
 
 .service-card:is(:hover, :focus-visible) .card-icon { opacity: 0; }
 
+/* ui */
 
+.ui{
+  margin-top: 200px;
+}
 
 /*=============== plan ===============*/
 .plan{
