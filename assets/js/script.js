@@ -198,39 +198,3 @@ anime.timeline({loop: true})
 
 
 
-  /*=============== EMAIL JS ===============*/
-const contactForm = document.getElementById('contact-form'),
-contactName = document.getElementById('contact-name'),
-contactEmail = document.getElementById('contact-email'),
-contactProject = document.getElementById('contact-project'),
-contactMessage = document.getElementById('contact-message');
-
-
-const sendEmail = (e) =>{
-e.preventDefault()
-
-if(contactName.value === '' || contactEmail.value === '' || contactProject.value === ''){
-contactMessage.classList.add('color-red')
-contactMessage.textContent = ' ✖ Write all the input fields '
-}else{
-// serviceID - templateID - #form - publicKey
-emailjs.sendForm('service_7sg9bmg', 'template_gkyhv16', '#contact-form', 'YUQ9K-sNHDwdgQ9O6')
-.then(() =>{
-  // Show message and add color
-  contactMessage.classList.add('color-blue')
-  contactMessage.textContent = '✔	 Message sent'
-  // Remove message after five seconds
-  setTimeout(() =>{
-      contactMessage.textContent = ''
-  }, 5000)
-}, (error) => {
-  alert('OOPS! SOMETHING HAS FAILED...', error)
-})
-// To clear the input field
-contactName.value = ''
-contactEmail.value = ''
-contactProject.value = ''
-}
-
-}
-contactForm.addEventListener('submit', sendEmail);
